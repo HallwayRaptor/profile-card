@@ -6,7 +6,7 @@ const skills = [
 	{
 		skill: "HTML + CSS",
 		level: "advanced",
-		color: "#E67E80",
+		color: "#D699B6",
 	},
 	{
 		skill: "Javascript",
@@ -21,7 +21,7 @@ const skills = [
 	{
 		skill: "React",
 		level: "beginner",
-		color: "#D699B6",
+		color: "#E67E80",
 	},
 	{
 		skill: "Git + Github",
@@ -38,23 +38,23 @@ const App = () => (
 		</div>
 		<div className="skill-list">
 			{skills.map((skill) => (
-				<Skill skillObj={skill} key={skill.name} />
+				<Skill skill={skill.skill} color={skill.color} level={skill.level} />
 			))}
 		</div>
 	</div>
 );
 
-const Skill = ({ skillObj }) => {
-	const level = {
+const Skill = ({ skill, color, level }) => {
+	const levelObj = {
 		advanced: "🌳",
 		intermediate: "🌿",
 		beginner: "🌱",
 	};
 
 	return (
-		<div className="skill" style={{ backgroundColor: skillObj.color }}>
-			<span>{skillObj.skill}</span>
-			<span>{`${level[skillObj.level]}`}</span>
+		<div className="skill" style={{ backgroundColor: color }}>
+			<span>{skill}</span>
+			<span>{`${levelObj[level]}`}</span>
 		</div>
 	);
 };
